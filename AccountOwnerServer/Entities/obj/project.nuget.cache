@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "puQGEjymxymyAGQt4QxvgXQDWkt0k8EmWYy3RbME7NBfC542yn8/JcITTm9g3nmp0ciVeuHuGzka6mZDzIAOBQ==",
+  "dgSpecHash": "su+i0DliHfeECbg7d3XGf45siRNZvINusMLLUQEyED8DzMM7yLq5OwS/8sUHr107blVnQiK9NXZZN6loKYhIBw==",
   "success": true,
-  "projectFilePath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Entities\\Entities.csproj",
+  "projectFilePath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

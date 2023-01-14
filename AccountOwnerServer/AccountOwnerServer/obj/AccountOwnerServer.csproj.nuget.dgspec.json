@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer.csproj": {}
+    "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer.csproj": {}
   },
   "projects": {
-    "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer.csproj": {
+    "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer.csproj",
+        "projectUniqueName": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer.csproj",
         "projectName": "AccountOwnerServer",
-        "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer.csproj",
+        "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer.csproj",
         "packagesPath": "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\",
-        "outputPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\obj\\",
+        "outputPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\AccountOwnerServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\LoggerService\\LoggerService.csproj": {
-                "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\LoggerService\\LoggerService.csproj"
+              "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\LoggerService\\LoggerService.csproj": {
+                "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\LoggerService\\LoggerService.csproj"
               },
-              "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Repository\\Repository.csproj": {
-                "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Repository\\Repository.csproj"
+              "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Repository\\Repository.csproj": {
+                "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Repository\\Repository.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Contracts\\Contracts.csproj": {
+    "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Contracts\\Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Contracts\\Contracts.csproj",
+        "projectUniqueName": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Contracts\\Contracts.csproj",
         "projectName": "Contracts",
-        "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Contracts\\Contracts.csproj",
+        "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Contracts\\Contracts.csproj",
         "packagesPath": "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\",
-        "outputPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Contracts\\obj\\",
+        "outputPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -113,8 +113,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Entities\\Entities.csproj": {
-                "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Entities\\Entities.csproj"
+              "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Entities\\Entities.csproj": {
+                "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Entities\\Entities.csproj"
               }
             }
           }
@@ -154,14 +154,14 @@
         }
       }
     },
-    "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Entities\\Entities.csproj": {
+    "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Entities\\Entities.csproj",
+        "projectUniqueName": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Entities\\Entities.csproj",
+        "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\",
-        "outputPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Entities\\obj\\",
+        "outputPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -228,14 +228,14 @@
         }
       }
     },
-    "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\LoggerService\\LoggerService.csproj": {
+    "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\LoggerService\\LoggerService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\LoggerService\\LoggerService.csproj",
+        "projectUniqueName": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\LoggerService\\LoggerService.csproj",
         "projectName": "LoggerService",
-        "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\LoggerService\\LoggerService.csproj",
+        "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\LoggerService\\LoggerService.csproj",
         "packagesPath": "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\",
-        "outputPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\LoggerService\\obj\\",
+        "outputPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\LoggerService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -257,8 +257,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Contracts\\Contracts.csproj": {
-                "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Contracts\\Contracts.csproj"
+              "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Contracts\\Contracts.csproj": {
+                "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Contracts\\Contracts.csproj"
               }
             }
           }
@@ -292,14 +292,14 @@
         }
       }
     },
-    "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Repository\\Repository.csproj": {
+    "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Repository\\Repository.csproj",
+        "projectUniqueName": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Repository\\Repository.csproj",
+        "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\",
-        "outputPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Repository\\obj\\",
+        "outputPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -321,8 +321,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Contracts\\Contracts.csproj": {
-                "projectPath": "D:\\AccountOwnerServer\\AccountOwnerServer\\AccountOwnerServer\\Contracts\\Contracts.csproj"
+              "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Contracts\\Contracts.csproj": {
+                "projectPath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Contracts\\Contracts.csproj"
               }
             }
           }

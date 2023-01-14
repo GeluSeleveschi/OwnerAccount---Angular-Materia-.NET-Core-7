@@ -5,11 +5,13 @@ import { OwnerRoutingModule } from './owner-routing/owner-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { OwnerDetailsComponent } from './owner-details/owner-details.component';
+import { OwnerAccountsComponent } from './owner-details/owner-accounts/owner-accounts.component';
 
 @NgModule({
   declarations: [
     OwnerListComponent,
     OwnerDetailsComponent,
+    OwnerAccountsComponent,
   ],
   imports: [
     CommonModule,
