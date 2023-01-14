@@ -1,0 +1,15 @@
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\bin\Debug\net7.0\Contracts.deps.json
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\bin\Debug\net7.0\Contracts.dll
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\bin\Debug\net7.0\Contracts.pdb
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\Contracts.csproj.AssemblyReference.cache
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\Contracts.AssemblyInfoInputs.cache
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\Contracts.AssemblyInfo.cs
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\Contracts.csproj.CoreCompileInputs.cache
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\Contracts.dll
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\refint\Contracts.dll
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\Contracts.pdb
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\ref\Contracts.dll
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\bin\Debug\net7.0\Entities.dll
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\bin\Debug\net7.0\Entities.pdb
+D:\AccountOwnerServer\AccountOwnerServer\AccountOwnerServer\Contracts\obj\Debug\net7.0\Contracts.csproj.CopyComplete
