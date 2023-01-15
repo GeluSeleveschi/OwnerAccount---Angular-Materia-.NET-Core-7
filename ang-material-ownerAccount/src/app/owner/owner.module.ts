@@ -6,6 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { OwnerDetailsComponent } from './owner-details/owner-details.component';
 import { OwnerAccountsComponent } from './owner-details/owner-accounts/owner-accounts.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { OwnerAccountsComponent } from './owner-details/owner-accounts/owner-acc
     CommonModule,
     OwnerRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SharedModule
   ]
 })
 export class OwnerModule { }

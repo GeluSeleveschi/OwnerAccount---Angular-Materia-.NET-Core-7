@@ -20,7 +20,7 @@
       <strong>Type of user:</strong>
     </div>
     <div class="col-md-3">
-      <span class="text-success">Beginner user.</span>
+      <span [appAppend]="owner" class="text-success">Beginner user.</span>
     </div>
   </div>
   <ng-template #advancedUser>
@@ -29,10 +29,11 @@
         <strong>Type of user:</strong>
       </div>
       <div class="col-md-3">
-        <span class="text-info">Advanced user.</span>
+        <span [appAppend]="owner" class="text-info">Advanced user.</span>
       </div>
     </div>
   </ng-template>
 </div>
 
-<app-owner-accounts [accounts]="owner?.accounts" (onClickAccount)="printToConsole($event)"></app-owner-accounts>
+<app-owner-accounts [accounts]="owner?.accounts" 
+  (onClickAccount)="printToConsole($event)"></app-owner-accounts>
