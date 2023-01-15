@@ -67,9 +67,9 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
     const updateUrl: string = `/owner/update/${id}`;
     this.router.navigate([updateUrl]);
   }
-  
-  public redirectToDelete = (id: string) => {
 
+  public redirectToDelete = (id: string) => {
+    this.router.navigate([`/owner/delete/${id}`]);
   }
 
   doFilter = (event: any) => {

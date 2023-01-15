@@ -163,6 +163,7 @@ namespace AccountOwnerServer.Controllers
             }
         }
 
+        [HttpDelete("{id}")]
         public IActionResult DeleteOwner(Guid id)
         {
             try

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environment';
 import { OwnerModel } from '../owner/owner-creation.model';
@@ -22,13 +22,11 @@ export class OwnerRepositoryService {
     return this.http.put(this.createCompleteRoute(route, environment.urlAddress), owner);
   }
 
-  private createCompleteRoute = (route: string, envAddress: string) => {
-    return `${envAddress}/${route}`;
+  public deleteOwner = (route: string) => {
+    return this.http.delete(this.createCompleteRoute(route, environment.urlAddress));
   }
 
-  private generateHeaders = () => {
-    return {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    }
+  private createCompleteRoute = (route: string, envAddress: string) => {
+    return `${envAddress}/${route}`;
   }
 }
