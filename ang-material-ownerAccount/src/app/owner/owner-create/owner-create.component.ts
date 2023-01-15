@@ -7,7 +7,7 @@ import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { ErrorHandlerService } from 'src/app/shared/error-handler.service';
 import { SuccessModalComponent } from 'src/app/shared/modals/success-modal/success-modal.component';
 import { OwnerRepositoryService } from 'src/app/shared/owner-repository.service';
-import { OwnerForCreation } from '../owner-creation.model';
+import { OwnerModel } from '../owner-creation.model';
 import { Owner } from '../owner.model';
 
 @Component({
@@ -53,7 +53,7 @@ export class OwnerCreateComponent {
   }
 
   private executeOwnerCreation = (ownerFormValue) => {
-    const owner: OwnerForCreation = {
+    const owner: OwnerModel = {
       name: ownerFormValue.name,
       dateOfBirth: this.datePipe.transform(ownerFormValue.dateOfBirth, 'yyyy-MM-dd'),
       address: ownerFormValue.address

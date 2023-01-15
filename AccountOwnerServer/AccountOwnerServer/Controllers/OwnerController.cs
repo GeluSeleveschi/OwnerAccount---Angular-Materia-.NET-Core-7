@@ -154,7 +154,7 @@ namespace AccountOwnerServer.Controllers
                 _repository.Owner.UpdateOwner(ownerEntity);
                 _repository.Save();
 
-                return Ok("Successfully updated.");
+                return NoContent();
             }
             catch (Exception ex)
             {
