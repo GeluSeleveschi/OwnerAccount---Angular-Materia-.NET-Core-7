@@ -15,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { OwnerModule } from './owner/owner.module';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
-
+import { DatePipe } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,9 +35,10 @@ import { ServerErrorComponent } from './error-pages/server-error/server-error.co
     FlexLayoutModule,
     RoutingModule,
     HttpClientModule,
-    OwnerModule
+    OwnerModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
