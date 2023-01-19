@@ -6,3 +6,15 @@ em {
 .ng-invalid.ng-touched {
     border-color: red;
 }
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-card-title {
+    text-align: center;
+}
+
+button{
+    margin-right: 10px;
+}

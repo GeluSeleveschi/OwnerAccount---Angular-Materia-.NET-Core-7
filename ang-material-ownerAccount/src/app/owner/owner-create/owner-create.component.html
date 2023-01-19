@@ -1,56 +1,40 @@
-<div class="container-fluid">
-    <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)">
-      <div class="card card-body bg-light mb-2 mt-2">
-   
-        <div class="row mb-3">
-          <label for="name" class="col-form-label col-md-2">Name of the owner: </label>
-          <div class="col-md-5">
-            <input type="text" formControlName="name" id="name" class="form-control" />
-          </div>
-          <div class="col-md-5">
-            <em *ngIf="validateControl('name') 
-            && hasError('name', 'required')">Name is required</em>
-            <em *ngIf="validateControl('name') 
-            && hasError('name', 'maxlength')">Maximum allowed length is 60 characters.</em>
-          </div>
-        </div>
-   
-        <div class="mb-3 row">
-          <label for="dateOfBirth" class="col-form-label col-md-2">Date of birth: </label>
-          <div class="col-md-5">
-            <input type="text" formControlName="dateOfBirth" id="dateOfBirth" 
-            class="form-control" readonly bsDatepicker/>
-          </div>
-          <div class="col-md-5">
-            <em *ngIf="validateControl('dateOfBirth') 
-            && hasError('dateOfBirth', 'required')">Date of birth is required</em>
-          </div>
-        </div>
-   
-        <div class="mb-3 row">
-          <label for="address" class="col-form-label col-md-2">Address: </label>
-          <div class="col-md-5">
-            <input type="text" formControlName="address" id="address" class="form-control" />
-          </div>
-          <div class="col-md-5">
-            <em *ngIf="validateControl('address') 
-            && hasError('address', 'required')">Address is required</em>
-            <em *ngIf="validateControl('address') 
-            && hasError('address', 'maxlength')">Maximum allowed length is 100 characters.</em>
-          </div>
-        </div>
-   
-        <br><br>
-   
-        <div class="mb-3 row">
-            <div class="offset-5 col-md-1">
-                <button type="submit" class="btn btn-info" [disabled]="!ownerForm.valid">Save</button>
-            </div>
-            <div class="col-md-1">
-                <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-            </div>
-        </div>
-        
-      </div>
-    </form>
-  </div>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Create a new owner</mat-card-title>
+        <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)"
+            fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-card-content>
+                <mat-form-field>
+                    <mat-label>Owner's name</mat-label>
+                    <input matInput type="text" formControlName="name" id="name">
+                    <mat-hint align="end">Not more than 60 characters long.</mat-hint>
+                    <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+                    <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Date of birth</mat-label>
+                    <input matInput [matDatepicker]="picker"
+                        formControlName="dateOfBirth" id="dateOfBirth" readonly (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Owner's address</mat-label>
+                    <input type="text" matInput formControlName="address">
+                    <mat-hint align="end">Not more than 100 characters long.</mat-hint>
+                    <mat-error *ngIf="hasError('address','required')">Address is required</mat-error>
+                    <mat-error *ngIf="hasError('address','maxlength')">You have more than 100 characters</mat-error>
+                </mat-form-field>
+
+            </mat-card-content>
+            <mat-card-actions>
+                <mat-card-actions >
+                    <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+                    <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Create</button>
+                </mat-card-actions>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</section>

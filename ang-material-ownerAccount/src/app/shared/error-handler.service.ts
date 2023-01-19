@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
+import { ErrorDialogComponent } from './dialogs/error-dialog/error-dialog.component';
 import { ErrorModalComponent } from './modals/error-modal/error-modal.component';
 
 @Injectable({
@@ -9,7 +11,8 @@ import { ErrorModalComponent } from './modals/error-modal/error-modal.component'
 })
 export class ErrorHandlerService {
   errorMessage: string = '';
-  constructor(private router: Router, private modal: BsModalService) { }
+  public dialogConfig;
+  constructor(private router: Router, private modal: BsModalService, private dialog: MatDialog) { }
 
   public handleError = (error: HttpErrorResponse) => {
     if (error.status === 500) {
@@ -17,7 +20,7 @@ export class ErrorHandlerService {
     } else if (error.status === 404) {
       this.handle404Error(error);
     } else {
-      this.handleOtherError(error);
+      this.handleOtherErrors(error);
     }
 
   }
@@ -32,18 +35,24 @@ export class ErrorHandlerService {
     this.router.navigate(['/404']);
   }
 
-  private handleOtherError = (error: HttpErrorResponse) => {
+  // private handleOtherErrors = (error: HttpErrorResponse) => {  //display errors in a modal
+  //   this.createErrorMessage(error);
+
+  //   const config: ModalOptions = {
+  //     initialState: {
+  //       modalHeaderText: 'Error Message',
+  //       modalBodyText: this.errorMessage,
+  //       okButtonText: 'OK'
+  //     }
+  //   }
+
+  //   this.modal.show(ErrorModalComponent, config);
+  // }
+
+  private handleOtherErrors(error: HttpErrorResponse) {
     this.createErrorMessage(error);
-
-    const config: ModalOptions ={
-      initialState: {
-        modalHeaderText:'Error Message',
-        modalBodyText: this.errorMessage,
-        okButtonText: 'OK'
-      }
-    }
-
-    this.modal.show(ErrorModalComponent, config);
+    this.dialogConfig.data = { 'errorMessage': this.errorMessage };
+    this.dialog.open(ErrorDialogComponent, this.dialogConfig);
   }
 
   private createErrorMessage = (error: HttpErrorResponse) => {
