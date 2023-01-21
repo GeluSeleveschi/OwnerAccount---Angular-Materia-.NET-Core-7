@@ -17,6 +17,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
 import { DatePipe } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RoutingModule,
     HttpClientModule,
     OwnerModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

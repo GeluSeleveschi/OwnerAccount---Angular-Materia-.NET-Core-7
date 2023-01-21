@@ -2,11 +2,11 @@ import { DatePipe, Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ErrorHandlerService } from 'src/app/shared/error-handler.service';
 import { OwnerRepositoryService } from 'src/app/shared/owner-repository.service';
 import { RepositoryService } from 'src/app/shared/repository.service';
+import { ToastrNotificationService } from 'src/app/shared/toastr-notification.service';
 import { OwnerModel } from '../owner-creation.model';
 import { Owner } from '../owner.model';
 
@@ -22,9 +22,9 @@ export class AddUpdateOwnerDialogComponent implements OnInit, OnDestroy {
   owner: Owner;
   sub: Subscription;
 
-  constructor(private ownerService: OwnerRepositoryService, private errorService: ErrorHandlerService, private router: Router,
-    private dialog: MatDialog, private fb: FormBuilder, private datePipe: DatePipe, private location: Location,
-    private dialogRef: MatDialogRef<AddUpdateOwnerDialogComponent>, private repositoryService: RepositoryService, private activeRoute: ActivatedRoute) { }
+  constructor(private ownerService: OwnerRepositoryService, private errorService: ErrorHandlerService,
+    private fb: FormBuilder, private datePipe: DatePipe, private toastrService: ToastrNotificationService,
+    private dialogRef: MatDialogRef<AddUpdateOwnerDialogComponent>, private repositoryService: RepositoryService) { }
 
   ngOnInit(): void {
     this.ownerForm = this.fb.group({
@@ -33,17 +33,17 @@ export class AddUpdateOwnerDialogComponent implements OnInit, OnDestroy {
       address: new FormControl(null, Validators.required)
     })
 
-    
+
     this.sub = this.repositoryService.selectedOwnerAction$.subscribe(form => {
       this.owner = form;
     })
-    
+
     if (this.owner) {
       this.ownerForm = this.patchValues(this.owner);
     }
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
@@ -73,9 +73,10 @@ export class AddUpdateOwnerDialogComponent implements OnInit, OnDestroy {
             next: response => {
               this.owners = response as Owner[];
               this.repositoryService.updateOwnerList(this.owners);
+              this.toastrService.showSuccess('Owner updated successfully!', 'Owner');
             }
           })
-        } 
+        }
       })
     }
 
@@ -88,6 +89,7 @@ export class AddUpdateOwnerDialogComponent implements OnInit, OnDestroy {
               next: response => {
                 this.owners = response as Owner[];
                 this.repositoryService.updateOwnerList(this.owners);
+                this.toastrService.showSuccess('Owner added successfully!','Owner');
               }
             })
           },

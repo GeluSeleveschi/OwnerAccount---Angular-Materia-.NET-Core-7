@@ -14,6 +14,7 @@ import { OwnerUpdateComponent } from './owner-update/owner-update.component';
 import { OwnerDeleteComponent } from './owner-delete/owner-delete.component';
 import { AddUpdateOwnerDialogComponent } from './add-update-owner-dialog/add-update-owner-dialog.component';
 import { DeleteOwnerDialogComponent } from './delete-owner-dialog/delete-owner-dialog.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DeleteOwnerDialogComponent } from './delete-owner-dialog/delete-owner-d
     FlexLayoutModule,
     SharedModule,
     ReactiveFormsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    ToastrModule.forRoot()
   ]
 })
 export class OwnerModule { }

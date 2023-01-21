@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { RepositoryService } from 'src/app/shared/repository.service';
+import { ToastrNotificationService } from 'src/app/shared/toastr-notification.service';
 import { Owner } from '../owner.model';
 
 @Component({
@@ -13,7 +14,8 @@ export class DeleteOwnerDialogComponent implements OnInit {
   owner: Owner;
   ownerId: string;
   sub: Subscription;
-  constructor(private repositoryService: RepositoryService, private dialogRef: MatDialogRef<DeleteOwnerDialogComponent>) {
+  constructor(private repositoryService: RepositoryService, private dialogRef: MatDialogRef<DeleteOwnerDialogComponent>,
+    private toastrService: ToastrNotificationService) {
   }
 
   ngOnInit() {
@@ -32,6 +34,7 @@ export class DeleteOwnerDialogComponent implements OnInit {
             next: response => {
               owners = response as Owner[];
               this.repositoryService.updateOwnerList(owners);
+              this.toastrService.showSuccess('Successfully deleted!', 'Owner');
             }
           })
         }
