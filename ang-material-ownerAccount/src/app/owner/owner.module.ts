@@ -13,6 +13,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { OwnerUpdateComponent } from './owner-update/owner-update.component';
 import { OwnerDeleteComponent } from './owner-delete/owner-delete.component';
 import { AddUpdateOwnerDialogComponent } from './add-update-owner-dialog/add-update-owner-dialog.component';
+import { DeleteOwnerDialogComponent } from './delete-owner-dialog/delete-owner-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddUpdateOwnerDialogComponent } from './add-update-owner-dialog/add-upd
     OwnerCreateComponent,
     OwnerUpdateComponent,
     OwnerDeleteComponent,
-    AddUpdateOwnerDialogComponent
+    AddUpdateOwnerDialogComponent,
+    DeleteOwnerDialogComponent
   ],
   imports: [
     CommonModule,

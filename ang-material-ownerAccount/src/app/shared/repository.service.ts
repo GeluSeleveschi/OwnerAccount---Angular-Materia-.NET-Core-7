@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 import { environment } from 'src/environment';
 import { Owner } from '../owner/owner.model';
 
@@ -9,7 +9,10 @@ import { Owner } from '../owner/owner.model';
 })
 export class RepositoryService {
   private owners$ = new BehaviorSubject<any>([]);
+  private selectedOwner$ = new BehaviorSubject<Owner>(null);
+
   updatedListOfOwners$ = this.owners$.asObservable();
+  selectedOwnerAction$ = this.selectedOwner$.asObservable().pipe(tap(data => console.log(JSON.stringify(data))));
 
   constructor(private http: HttpClient) { }
 
@@ -43,4 +46,7 @@ export class RepositoryService {
     this.owners$.next(owners);
   }
 
+  updateSelectedOwner(owner: Owner) {
+    this.selectedOwner$.next(owner);
+  }
 }

@@ -1,7 +1,7 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
     <mat-card fxFlex="500px" fxFlex.xs="100%">
         <mat-card-title>Create a new owner</mat-card-title>
-        <form [formGroup]="ownerForm" autocomplete="on" novalidate (ngSubmit)="createOwner(ownerForm.value)">
+        <form [formGroup]="ownerForm" autocomplete="on" novalidate (ngSubmit)="submit(ownerForm.value)">
             <mat-card-content>
                 <mat-form-field>
                     <mat-label>Owner's name</mat-label>

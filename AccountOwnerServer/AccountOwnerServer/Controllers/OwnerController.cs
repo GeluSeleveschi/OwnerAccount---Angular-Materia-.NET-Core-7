@@ -57,6 +57,7 @@ namespace AccountOwnerServer.Controllers
                     _logger.LogInfo($"Returned owner with id: {id}");
 
                     var ownerResult = _mapper.Map<OwnerDTO>(owner);
+                    ownerResult.Name = ownerResult.Name.Trim();
                     return Ok(ownerResult);
                 }
             }
@@ -111,9 +112,13 @@ namespace AccountOwnerServer.Controllers
                 }
 
                 var ownerEntity = _mapper.Map<Owner>(owner);
+                if (ownerEntity != null)
+                {
+                    ownerEntity.Name = ownerEntity.Name.Trim();
 
-                _repository.Owner.CreateOwner(ownerEntity);
-                _repository.Save();
+                    _repository.Owner.CreateOwner(ownerEntity);
+                    _repository.Save();
+                }
 
                 var createdOwner = _mapper.Map<OwnerDTO>(ownerEntity);
 

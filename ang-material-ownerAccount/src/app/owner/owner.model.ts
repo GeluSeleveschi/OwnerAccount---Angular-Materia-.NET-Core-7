@@ -1,6 +1,6 @@
 import { Account } from "./account.model";
 
-export interface Owner {
+export class Owner {
     ownerId: string;
     name: string;
     dateOfBirth: Date;
