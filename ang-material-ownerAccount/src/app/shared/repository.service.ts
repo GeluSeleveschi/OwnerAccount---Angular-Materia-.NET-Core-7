@@ -1,11 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environment';
+import { Owner } from '../owner/owner.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RepositoryService {
+  private owners$ = new BehaviorSubject<any>([]);
+  updatedListOfOwners$ = this.owners$.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -33,6 +37,10 @@ export class RepositoryService {
     return {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
+  }
+
+  updateOwnerList(owners: Owner[]) {
+    this.owners$.next(owners);
   }
 
 }

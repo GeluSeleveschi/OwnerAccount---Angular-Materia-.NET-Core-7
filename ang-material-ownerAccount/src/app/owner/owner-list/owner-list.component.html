@@ -1,6 +1,8 @@
 <div class="row">
-    <div class="offset-10 col-md-2 mt-2"> <a [routerLink]="['/owner/create']">Create owner</a> </div>
-  </div> <br>
+    <div class="offset-10 col-md-2 mt-2"> <a [routerLink]="['/owner/create']">Create owner</a>
+        <button class="addBtn" mat-raised-button color="primary" (click)="showAddDialog()">Add</button>
+    </div>
+</div> <br>
 
 <div fxLayout fxLayoutAlign="center center">
     <mat-form-field fxFlex="40%">

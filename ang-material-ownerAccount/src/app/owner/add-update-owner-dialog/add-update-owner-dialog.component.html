@@ -1,0 +1,31 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Create a new owner</mat-card-title>
+        <form [formGroup]="ownerForm" autocomplete="on" novalidate (ngSubmit)="createOwner(ownerForm.value)">
+            <mat-card-content>
+                <mat-form-field>
+                    <mat-label>Owner's name</mat-label>
+                    <input type="text" matInput formControlName="name" id="name">
+                    <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Date of birth</mat-label>
+                    <input type="text" matInput [matDatepicker]="picker" formControlName="dateOfBirth" readonly
+                        (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="hasError('dateOfBirth','required')">Date of birth is required</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Owner's address</mat-label>
+                    <input type="text" matInput formControlName="address" id="address">
+                    <mat-error *ngIf="hasError('address', 'required')">Address is required</mat-error>
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions fxLayout="row" fxLayoutAlign="end center">
+                <button type="button" mat-raised-button color="warn" class="cancel" (click)="onCancel()">Cancel</button>
+                <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Save</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</section>
