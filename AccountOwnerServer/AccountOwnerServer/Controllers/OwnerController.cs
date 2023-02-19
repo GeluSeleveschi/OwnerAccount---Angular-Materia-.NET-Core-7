@@ -2,7 +2,10 @@
 using Contracts;
 using Entities.DataTransferObjects;
 using Entities.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Dynamic;
 
 namespace AccountOwnerServer.Controllers
 {
@@ -22,15 +25,31 @@ namespace AccountOwnerServer.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllOwners()
+        public IActionResult GetAllOwners([FromQuery] OwnerParameters ownerParameters)
         {
             try
             {
-                var owners = _repository.Owner.GetAllOwners();
-                _logger.LogInfo($"Returned all owners from database.");
+                if (!ownerParameters.ValidYearRange)
+                    return BadRequest("Max year of birth cannot be less than min year of birthk");
 
-                var ownersResult = _mapper.Map<IEnumerable<OwnerDTO>>(owners);
-                return Ok(ownersResult);
+                var owners = _repository.Owner.GetAllOwners(ownerParameters);
+
+                var metadata = new
+                {
+                    owners.TotalCount,
+                    owners.PageSize,
+                    owners.CurrentPage,
+                    owners.TotalPages,
+                    owners.HasNext,
+                    owners.HasPrevious
+                };
+
+                Response.Headers["Content-Type"] = "application/json";
+                Response.Headers["X-Pagination"] = JsonConvert.SerializeObject(metadata);
+                Response.Headers["Access-Control-Expose-Headers"] = "*";
+                _logger.LogInfo($"Returned {owners.TotalCount} owners from the database.");
+
+                return Ok(owners);
             }
             catch (Exception ex)
             {
@@ -39,12 +58,53 @@ namespace AccountOwnerServer.Controllers
             }
         }
 
-        [HttpGet("{id}", Name = "OwnerById")]
-        public IActionResult GetOwnerById(Guid id)
+        [HttpGet("{id}/owner")]
+        public IActionResult GetOwner(Guid id)
         {
             try
             {
                 var owner = _repository.Owner.GetOwnerById(id);
+
+                if (owner == null)
+                {
+                    _logger.LogError($"Owner with id: {id}, hasn't been found in db.");
+                    return NotFound();
+                }
+
+                if (owner is null)
+                {
+                    _logger.LogError($"Owner with id: {id}, hasn't been found in db.");
+
+                    return NotFound();
+                }
+                else
+                {
+                    _logger.LogInfo($"Returned owner with id: {id}");
+
+                    var ownerResult = _mapper.Map<OwnerDTO>(owner);
+                    ownerResult.Name = ownerResult.Name.Trim();
+                    return Ok(ownerResult);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside GetOwnerById action: {ex.Message}");
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        [HttpGet("{id}", Name = "OwnerById")]
+        public IActionResult GetFilteredOwnerById(Guid id, [FromQuery] string fields)
+        {
+            try
+            {
+                var owner = _repository.Owner.GetFilteredOwnerById(id, fields);
+
+                if (owner == default(ExpandoObject))
+                {
+                    _logger.LogError($"Owner with id: {id}, hasn't been found in db.");
+                    return NotFound();
+                }
 
                 if (owner is null)
                 {
@@ -196,6 +256,21 @@ namespace AccountOwnerServer.Controllers
                 _logger.LogError($"Something went wrong inside DeleteOwner action: {ex.Message}");
                 return StatusCode(500, "Internal server error"); ;
             }
+        }
+
+        [HttpGet("data")]
+        public async Task<ActionResult<PagingResult<Owner>>> GetOwners(int pageIndex = 0, int pageSize = 10)
+        {
+            var items = _repository.Owner.GetOwnersUsingPagination(pageIndex, pageSize);
+            var totalItems = _repository.Owner.GetAllOwnersCount();
+            var result = new PagingResult<Owner>
+            {
+                TotalItems = totalItems,
+                CurrentPage = pageIndex,
+                PageSize = pageSize,
+                Items = items.ToList()
+            };
+            return Ok(result);
         }
     }
 }

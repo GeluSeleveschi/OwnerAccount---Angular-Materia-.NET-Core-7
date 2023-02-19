@@ -52,6 +52,7 @@ export class OwnerUpdateComponent {
 
     return false;
   }
+
   hasError = (controlName: string, errorName: string) => {
     if (this.ownerForm.get(controlName).hasError(errorName))
       return true;
@@ -90,7 +91,7 @@ export class OwnerUpdateComponent {
     })
   }
 
-  redirectToOwnerList(){
+  redirectToOwnerList() {
     this.router.navigate(['/owner/owners']);
   }
 }

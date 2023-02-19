@@ -14,6 +14,8 @@ export class DeleteOwnerDialogComponent implements OnInit {
   owner: Owner;
   ownerId: string;
   sub: Subscription;
+  pathToRefreshData: string;
+
   constructor(private repositoryService: RepositoryService, private dialogRef: MatDialogRef<DeleteOwnerDialogComponent>,
     private toastrService: ToastrNotificationService) {
   }
@@ -22,6 +24,10 @@ export class DeleteOwnerDialogComponent implements OnInit {
     this.sub = this.repositoryService.selectedOwnerAction$.subscribe(data => {
       this.ownerId = data.ownerId;
     })
+
+    this.repositoryService.sendPathToRefreshGrid$.subscribe(path => {
+      this.pathToRefreshData = path;
+    });
   }
 
   deleteOwner() {
@@ -30,10 +36,9 @@ export class DeleteOwnerDialogComponent implements OnInit {
       this.repositoryService.delete(`api/owner/${this.ownerId}`).subscribe({
         next: _ => {
           this.dialogRef.close()
-          this.repositoryService.getData('api/owner').subscribe({
+          this.repositoryService.refreshData(this.pathToRefreshData).subscribe({
             next: response => {
-              owners = response as Owner[];
-              this.repositoryService.updateOwnerList(owners);
+              this.repositoryService.updateOwnerList(response);
               this.toastrService.showSuccess('Successfully deleted!', 'Owner');
             }
           })

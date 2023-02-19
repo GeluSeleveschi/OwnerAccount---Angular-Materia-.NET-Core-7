@@ -21,7 +21,8 @@ export class AddUpdateOwnerDialogComponent implements OnInit, OnDestroy {
   owners: Owner[];
   owner: Owner;
   sub: Subscription;
-
+  pathToRefreshData: string;
+  
   constructor(private ownerService: OwnerRepositoryService, private errorService: ErrorHandlerService,
     private fb: FormBuilder, private datePipe: DatePipe, private toastrService: ToastrNotificationService,
     private dialogRef: MatDialogRef<AddUpdateOwnerDialogComponent>, private repositoryService: RepositoryService) { }
@@ -41,6 +42,10 @@ export class AddUpdateOwnerDialogComponent implements OnInit, OnDestroy {
     if (this.owner) {
       this.ownerForm = this.patchValues(this.owner);
     }
+
+    this.repositoryService.sendPathToRefreshGrid$.subscribe(path => {
+      this.pathToRefreshData = path;
+    });
   }
 
   ngOnDestroy() {
@@ -69,10 +74,9 @@ export class AddUpdateOwnerDialogComponent implements OnInit, OnDestroy {
       this.ownerService.updateOwner(`api/owner/${ownerFormValue.ownerId}`, owner).subscribe({
         next: _ => {
           this.dialogRef.close()
-          this.repositoryService.getData('api/owner').subscribe({
+          this.repositoryService.refreshData(this.pathToRefreshData).subscribe({
             next: response => {
-              this.owners = response as Owner[];
-              this.repositoryService.updateOwnerList(this.owners);
+              this.repositoryService.updateOwnerList(response);
               this.toastrService.showSuccess('Owner updated successfully!', 'Owner');
             }
           })
@@ -85,11 +89,11 @@ export class AddUpdateOwnerDialogComponent implements OnInit, OnDestroy {
         {
           next: _ => {
             this.dialogRef.close();
-            this.repositoryService.getData('api/owner').subscribe({
+            this.repositoryService.refreshData(this.pathToRefreshData).subscribe({
               next: response => {
-                this.owners = response as Owner[];
-                this.repositoryService.updateOwnerList(this.owners);
-                this.toastrService.showSuccess('Owner added successfully!','Owner');
+                this.owners = response?.items;
+                this.repositoryService.updateOwnerList(response);
+                this.toastrService.showSuccess('Owner added successfully!', 'Owner');
               }
             })
           },

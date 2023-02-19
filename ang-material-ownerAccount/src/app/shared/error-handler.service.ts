@@ -2,9 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { ErrorDialogComponent } from './dialogs/error-dialog/error-dialog.component';
-import { ErrorModalComponent } from './modals/error-modal/error-modal.component';
 
 @Injectable({
   providedIn: 'root'
@@ -34,20 +33,6 @@ export class ErrorHandlerService {
     this.createErrorMessage(error);
     this.router.navigate(['/404']);
   }
-
-  // private handleOtherErrors = (error: HttpErrorResponse) => {  //display errors in a modal
-  //   this.createErrorMessage(error);
-
-  //   const config: ModalOptions = {
-  //     initialState: {
-  //       modalHeaderText: 'Error Message',
-  //       modalBodyText: this.errorMessage,
-  //       okButtonText: 'OK'
-  //     }
-  //   }
-
-  //   this.modal.show(ErrorModalComponent, config);
-  // }
 
   private handleOtherErrors(error: HttpErrorResponse) {
     this.createErrorMessage(error);

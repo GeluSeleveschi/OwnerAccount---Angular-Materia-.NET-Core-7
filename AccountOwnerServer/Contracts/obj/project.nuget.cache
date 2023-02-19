@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Dux34P6QFfhzhDeC3aNKu7Mz7S1R/3qlywSwZtuqvaVCf0aWcIRcOPLypIMQytt73qHyrlZMEu8R2H/HKUSDmw==",
+  "dgSpecHash": "VRbcaO32f2WbblDBvT4JjGAuNXDVKZVHmg64T4WhmRdLb9+fu+gKNVXBh+acgFBX9SB6HFSStgvOe7Kdy3xijg==",
   "success": true,
   "projectFilePath": "D:\\Personal Repository\\OwnerAccount - .NET Core 7 - Angular Material\\OwnerAccount---Angular-Materia-.NET-Core-7\\AccountOwnerServer\\Contracts\\Contracts.csproj",
   "expectedPackageFiles": [
@@ -49,6 +49,7 @@
     "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.21.0\\system.identitymodel.tokens.jwt.6.21.0.nupkg.sha512",
     "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\system.linq.dynamic.core\\1.2.24\\system.linq.dynamic.core.1.2.24.nupkg.sha512",
     "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
     "C:\\Users\\Gelu Seleveschi\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

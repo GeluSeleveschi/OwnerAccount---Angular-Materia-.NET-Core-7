@@ -1,11 +1,10 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { ErrorHandlerService } from 'src/app/shared/error-handler.service';
+import { Subscription } from 'rxjs';
 import { OwnerRepositoryService } from 'src/app/shared/owner-repository.service';
 import { RepositoryService } from 'src/app/shared/repository.service';
 import { AddUpdateOwnerDialogComponent } from '../add-update-owner-dialog/add-update-owner-dialog.component';
@@ -17,53 +16,38 @@ import { Owner } from '../owner.model';
   templateUrl: './owner-list.component.html',
   styleUrls: ['./owner-list.component.scss']
 })
-export class OwnerListComponent implements OnInit, AfterViewInit {
+export class OwnerListComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   owners: Owner[];
   errorMessage: string;
   private dialogConfig;
+  pageSize = 10;
+  pageNumber = 1;
+  resultsLength = 10;
+  pageIndex: number = 0;
+  totalItems: number;
+  sub: Subscription;
 
   public displayedColumns = ['name', 'dateOfBirth', 'address', 'details', 'update', 'delete'];
-
   public dataSource = new MatTableDataSource<Owner>();
 
-  constructor(private repositoryService: RepositoryService, private errorHandlerService: ErrorHandlerService, private router: Router,
-    private ownerService: OwnerRepositoryService, private dialog: MatDialog) { }
+  constructor(private repositoryService: RepositoryService, private router: Router,
+    private ownerService: OwnerRepositoryService, private dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
-    this.getAllOwners();
-    this.repositoryService.updatedListOfOwners$.subscribe((value) => {
-      if (value) {
-        this.owners = value as Owner[];
-      }
-    })
+    this.getItems();
+
+    this.sub = this.repositoryService.updatedListOfOwners$.subscribe(resp => {
+      this.dataSource.data = resp.items;
+      this.totalItems = resp.totalItems;
+    });
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-  }
-
-  // public getAllOwners = () => {
-  //   this.repositoryService.getData('api/owner').subscribe(res => {
-  //     this.dataSource.data = res as Owner[];
-  //   },
-  //     (error) => {
-  //       this.errorService.handleError(error);
-  //     });
-  // }
-
-  private getAllOwners = () => {
-    const apiAddress: string = 'api/owner';
-    this.repositoryService.getData(apiAddress).subscribe({
-      next: (owners: Owner[]) => this.owners = owners,
-      error: (err: HttpErrorResponse) => {
-        this.errorHandlerService.handleError(err);
-        this.errorMessage = this.errorHandlerService.errorMessage;
-      }
-    })
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   public getOwnerDetails = (ownerId) => {
@@ -71,28 +55,24 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
     this.router.navigate([detailsUrl]);
   }
 
-  public redirectToDetails = (id: string) => {
-
-  }
   public redirectToUpdate = (id: string) => {
-    const updateUrl: string = `/owner/update/${id}`;
-    const ownerByIdUri: string = `api/owner/${id}`;
-    // this.router.navigate([updateUrl]);
+    const ownerByIdUri: string = `api/owner/${id}/owner`;
     let owner: Owner;
     this.ownerService.getOwner(ownerByIdUri).subscribe(data => {
       owner = data as Owner;
       this.repositoryService.updateSelectedOwner(owner);
+      this.sendRefreshDataPath();
       this.dialog.open(AddUpdateOwnerDialogComponent, this.dialogConfig);
     });
   }
 
   public redirectToDelete = (id: string) => {
-    // this.router.navigate([`/owner/delete/${id}`]);
-    const ownerByIdUri: string = `api/owner/${id}`;
+    const ownerByIdUri: string = `api/owner/${id}/owner`;
     let owner: Owner;
 
     this.ownerService.getOwner(ownerByIdUri).subscribe(data => {
       owner = data as Owner;
+      this.sendRefreshDataPath();
       this.repositoryService.updateSelectedOwner(owner);
       this.dialog.open(DeleteOwnerDialogComponent, this.dialogConfig);
     });
@@ -108,4 +88,21 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
     this.dialog.open(AddUpdateOwnerDialogComponent, this.dialogConfig);
   }
 
+  getItems() {
+    this.repositoryService.getItems(this.pageIndex, this.pageSize).subscribe(result => {
+      this.dataSource.data = result.items;
+      this.totalItems = result.totalItems;
+    });
+  }
+
+  onPageChange(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.getItems();
+  }
+
+  sendRefreshDataPath() {
+    const path = `api/owner/data?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`;
+    this.repositoryService.sendPathToRefreshData(path);
+  }
 }
